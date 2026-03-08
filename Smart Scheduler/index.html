@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anfairy | Productivity Workspace</title>
+    <title>Anfairy | Productivity App</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -11,18 +11,16 @@
            UI/UX THEME: MODERN PRODUCTIVITY
            ========================================= */
         :root {
-            /* Palette Profesional & Clean */
-            --bg-dark: #0f172a;          /* Slate 900 */
-            --panel-bg: #1e293b;         /* Slate 800 */
-            --card-bg: #334155;          /* Slate 700 */
-            --primary: #3b82f6;          /* Blue 500 (Fokus) */
-            --primary-hover: #2563eb;    /* Blue 600 */
-            --success: #10b981;          /* Emerald 500 (Selesai) */
-            --danger: #ef4444;           /* Red 500 (Hapus/Alarm) */
+            --bg-dark: #0f172a;          
+            --panel-bg: #1e293b;         
+            --card-bg: #334155;          
+            --primary: #3b82f6;          
+            --primary-hover: #2563eb;    
+            --success: #10b981;          
+            --danger: #ef4444;           
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             
-            /* Kategori Warna */
             --kuliah: #3b82f6;
             --hmif: #f59e0b;
             --pribadi: #10b981;
@@ -33,20 +31,19 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-dark); color: var(--text-main); margin: 0; overflow-x: hidden; }
 
         /* --- HALAMAN LOGIN --- */
-        .login-overlay { position: fixed; inset: 0; background: var(--bg-dark); display: flex; justify-content: center; align-items: center; z-index: 2000; }
-        .login-card { background: var(--panel-bg); padding: 40px; border-radius: 24px; text-align: center; width: 400px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .login-overlay { position: fixed; inset: 0; background: var(--bg-dark); display: flex; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
+        .login-card { background: var(--panel-bg); padding: 40px; border-radius: 24px; text-align: center; width: 100%; max-width: 400px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         
-        .profile-container { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; padding: 4px; background: var(--primary); }
+        .profile-container { width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; padding: 4px; background: var(--primary); }
         .login-profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid var(--panel-bg); background: var(--card-bg); }
 
         /* --- DASHBOARD LAYOUT --- */
-        .app-container { display: flex; min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; flex-direction: row; }
         .sidebar { width: 340px; background: var(--panel-bg); padding: 25px; border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
         .content { flex: 1; padding: 40px; background: var(--bg-dark); overflow-y: auto; }
 
         /* --- LOGO & HEADER --- */
         .logo { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px; color: var(--text-main); }
-        .logo span { color: var(--primary); }
         
         .content-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .content-header h1 { font-size: 2rem; margin: 0 0 5px 0; }
@@ -59,7 +56,7 @@
 
         .form-card { background: var(--card-bg); padding: 20px; border-radius: 16px; }
         .input-box { margin-bottom: 15px; }
-        .input-box label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; display: block; }
+        .input-box label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; display: block; text-align: left; }
         
         input, select { width: 100%; background: var(--bg-dark); border: 1px solid #475569; padding: 12px; border-radius: 10px; color: white; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; }
         input:focus, select:focus { border-color: var(--primary); }
@@ -77,7 +74,7 @@
         .clock-display h2 { margin: 0; font-size: 2rem; font-weight: 700; color: var(--text-main); font-variant-numeric: tabular-nums; }
 
         /* --- KARTU JADWAL (TIMELINE) --- */
-        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .timeline-item { background: var(--card-bg); padding: 20px; border-radius: 16px; border-left: 6px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between; }
         
         .cat-Kuliah { border-left-color: var(--kuliah); } .cat-HMIF { border-left-color: var(--hmif); }
@@ -93,9 +90,18 @@
         @keyframes alertPulse { 0% { border-color: var(--danger); box-shadow: 0 0 0 0 rgba(239,68,68,0.4); } 70% { border-color: var(--danger); box-shadow: 0 0 0 15px rgba(239,68,68,0); } 100% { border-color: var(--danger); box-shadow: 0 0 0 0 rgba(239,68,68,0); } }
         .is-vibrating { animation: alertPulse 1s infinite; border: 2px solid var(--danger) !important; }
 
-        /* --- MODAL --- */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); z-index: 3000; display: none; justify-content: center; align-items: center; }
-        .modal-card { background: var(--panel-bg); padding: 30px; border-radius: 20px; width: 400px; border: 1px solid rgba(255,255,255,0.1); }
+        /* =========================================
+           KODE RESPONSIVE UNTUK HP (MOBILE)
+           ========================================= */
+        @media (max-width: 768px) {
+            .app-container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; }
+            .content { padding: 20px; }
+            .content-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .content-header h1 { font-size: 1.5rem; }
+            .clock-display h2 { font-size: 1.5rem; }
+            .login-card { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body id="mainBody">
@@ -117,19 +123,19 @@
 
 <div id="mainApp" class="app-container" style="display: none;">
     <aside class="sidebar">
-        <div class="logo">🚀<span>Anfairy</span> Dashboard</div>
+        <div class="logo">🚀 Anfairy</div>
         
         <div class="stats-card">
-            <h4 style="margin:0 0 10px 0; font-size: 0.9rem;">Tingkat Penyelesaian</h4>
+            <h4 style="margin:0 0 10px 0; font-size: 0.9rem;">Progres Belajar</h4>
             <div class="progress-container"><div id="progressFill" class="progress-fill"></div></div>
-            <p id="statsText" style="font-size:0.8rem; color:var(--text-muted); margin:0">0% Tugas Selesai</p>
+            <p id="statsText" style="font-size:0.8rem; color:var(--text-muted); margin:0">0% Selesai</p>
         </div>
 
         <div class="form-card">
-            <h3 style="margin-bottom:20px; font-size: 1rem;">Tambah Jadwal</h3>
+            <h3 style="margin-bottom:20px; font-size: 1rem; margin-top: 0;">Rencana Baru</h3>
             <div class="input-box">
-                <label>Nama Aktivitas</label>
-                <input type="text" id="taskName" placeholder="Aktivitas Hari Ini...">
+                <label>Aktivitas</label>
+                <input type="text" id="taskName" placeholder="Contoh: Modul Pemrograman">
             </div>
             <div class="input-box">
                 <label>Kategori</label>
@@ -148,11 +154,11 @@
                     <input type="time" id="startTime">
                 </div>
                 <div class="input-box" style="width: 100px;">
-                    <label>Durasi (Mnt)</label>
+                    <label>Mnt</label>
                     <input type="number" id="duration" placeholder="Mnt">
                 </div>
             </div>
-            <button class="btn-primary" onclick="processSchedule()" style="margin-top: 5px;">Simpan & Kalkulasi Waktu</button>
+            <button class="btn-primary" onclick="processSchedule()" style="margin-top: 5px;">Simpan</button>
         </div>
 
         <div class="clock-display">
@@ -166,10 +172,10 @@
     <main class="content">
         <header class="content-header">
             <div>
-                <h1 style="margin-bottom:5px;">Jadwal Produktivitas <span id="displayUserName" style="color:var(--primary)">Tita</span></h1>
-                <p style="margin:0; color:var(--text-muted); font-size: 0.9rem;">Sistem Penjadwalan Aktif Berjalan</p>
+                <h1 style="margin-bottom:5px;">Jadwal Harian <span id="displayUserName" style="color:var(--primary)">Tita</span></h1>
+                <p style="margin:0; color:var(--text-muted); font-size: 0.9rem;">Status: Sistem Aktif</p>
             </div>
-            <div id="taskCount" class="task-badge">0 Tugas Pending</div>
+            <div id="taskCount" class="task-badge">0 Tugas</div>
         </header>
 
         <div id="scheduleTimeline" class="timeline-grid"></div>
@@ -178,7 +184,10 @@
 
 <script>
     let activities = JSON.parse(localStorage.getItem('anfairy_prod_v12')) || [];
-    let alarmAudio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3'); 
+    
+    // Suara Jam Beker Klasik yang Nyaring & Volume Max
+    let alarmAudio = new Audio('https://actions.google.com/sounds/v1/alarms/mechanical_clock_ring.ogg'); 
+    alarmAudio.volume = 1.0; // Memaksa volume ke 100%
 
     document.addEventListener('DOMContentLoaded', () => {
         const savedUser = sessionStorage.getItem('activeUser');
@@ -193,6 +202,11 @@
         
         if (!name || !pass) return alert("Isi data login terlebih dahulu.");
         
+        // Pancingan Audio
+        alarmAudio.play().catch(e => console.log("Menunggu izin audio"));
+        alarmAudio.pause();
+        alarmAudio.currentTime = 0;
+
         if (!existingPass) { 
             localStorage.setItem('userPassword', pass); 
             sessionStorage.setItem('activeUser', name); 
@@ -225,13 +239,13 @@
             if (act.date === curDate) {
                 // ALARM MULAI
                 if (act.startTimeStr === curTime && !act.alarmFired) {
-                    fireAlarm(`PERHATIAN: Waktu mulai untuk aktivitas "${act.name}"`);
                     act.alarmFired = true; saveAndRender();
+                    fireAlarm(`PERHATIAN: Waktu mulai untuk aktivitas "${act.name}"`);
                 }
                 // OTOMATIS BERHENTI DARI DURASI
                 if (curTotalMin >= act.endTotalMinutes && !act.isCompleted) {
-                    fireAlarm(`SESI SELESAI: Durasi untuk "${act.name}" telah habis.`);
                     act.isCompleted = true; saveAndRender();
+                    fireAlarm(`SESI SELESAI: Durasi untuk "${act.name}" telah habis.`);
                 }
             }
         });
@@ -239,14 +253,18 @@
     }
 
     function fireAlarm(msg) {
-        alarmAudio.loop = true; alarmAudio.play().catch(() => console.log("Izin audio dibutuhkan."));
+        alarmAudio.loop = true; 
+        alarmAudio.play().catch(() => console.log("Izin audio dibutuhkan."));
+        
         document.getElementById('mainApp').classList.add('is-vibrating');
+        
         setTimeout(() => { 
             if(confirm("PEMBERITAHUAN SISTEM:\n\n" + msg + "\n\nKlik OK untuk menghentikan alarm.")) { 
-                alarmAudio.pause(); alarmAudio.currentTime = 0; 
+                alarmAudio.pause(); 
+                alarmAudio.currentTime = 0; 
                 document.getElementById('mainApp').classList.remove('is-vibrating'); 
             } 
-        }, 500);
+        }, 1000);
     }
 
     function processSchedule() {
@@ -258,10 +276,11 @@
 
         const [h, m] = start.split(':').map(Number);
         const startMin = (h * 60) + m;
-        const endMin = startMin + dur; // Sistem kalkulasi jam selesai otomatis
+        const endMin = startMin + dur; 
 
         activities.push({ id: Date.now(), name, category: cat, date, startTimeStr: start, startTotalMinutes: startMin, endTotalMinutes: endMin, durationMin: dur, alarmFired: false, isCompleted: false });
         saveAndRender();
+        document.getElementById('taskName').value = "";
     }
 
     function updateUI() {
@@ -273,7 +292,6 @@
         activities.forEach((item, index) => {
             if (item.isCompleted) completed++;
             
-            // Generate Format Jam Selesai
             const endH = Math.floor(item.endTotalMinutes / 60).toString().padStart(2, '0');
             const endM = (item.endTotalMinutes % 60).toString().padStart(2, '0');
             const endTimeStr = `${endH}:${endM}`;
@@ -299,8 +317,8 @@
         
         const percent = activities.length === 0 ? 0 : Math.round((completed / activities.length) * 100);
         document.getElementById('progressFill').style.width = percent + "%";
-        document.getElementById('statsText').innerText = `${percent}% Efisiensi Harian`;
-        document.getElementById('taskCount').innerText = `${activities.length - completed} Tugas Pending`;
+        document.getElementById('statsText').innerText = `${percent}% Selesai`;
+        document.getElementById('taskCount').innerText = `${activities.length} Tugas`;
     }
 
     function saveAndRender() { localStorage.setItem('anfairy_prod_v12', JSON.stringify(activities)); updateUI(); }
